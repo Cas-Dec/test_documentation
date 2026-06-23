@@ -1,4 +1,4 @@
 site_name: Test documentation for H-CEL
-site-url: https://hydro-climate-extremes-lab.github.io/test_documentation/ # has to be this for github pages
+site-url: https://h-cel.github.io/test_documentation/ # has to be this for github pages
 theme:
   name: material
