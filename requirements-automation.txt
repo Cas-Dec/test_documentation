@@ -1,0 +1,14 @@
+# Requirements for HPC documentation automation
+# Install with: pip install -r requirements-automation.txt
+
+# Core dependencies
+pyyaml>=6.0
+jsonschema>=4.0
+
+# Documentation site
+mkdocs>=1.5
+mkdocs-material>=9.0
+
+# Optional: for real-time file watching (scripts/watch_and_update.py)
+# Uncomment to enable:
+# watchdog>=3.0

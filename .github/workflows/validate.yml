@@ -1,0 +1,40 @@
+name: Validate Metadata
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        pip install pyyaml jsonschema
+    
+    - name: Validate metadata files
+      run: |
+        python scripts/validate_metadata.py
+    
+    - name: Build catalog
+      run: |
+        python scripts/build_catalog.py
+    
+    - name: Install MkDocs
+      run: |
+        pip install -r docs-site/requirements.txt
+    
+    - name: Build documentation site
+      run: |
+        cd docs-site
+        mkdocs build --strict

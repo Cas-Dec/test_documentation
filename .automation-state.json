@@ -1,0 +1,10 @@
+{
+  "CHIRPS": "VSC_DATA_VO/shared/external/CHIRPS/metadata.yaml",
+  "ERA5": "VSC_DATA_VO/shared/external/ERA5/metadata.yaml",
+  "ERA5-Land": "VSC_DATA_VO/shared/external/ERA5-Land/metadata.yaml",
+  "MODIS_BA": "VSC_DATA_VO/shared/external/MODIS_BA/metadata.yaml",
+  "GLEAM": "VSC_DATA_VO/shared/generated/GLEAM/metadata.yaml",
+  "SNOWSHOP Sentinel-1 Snow Products": "VSC_DATA_VO/shared/generated/SNOWSHOP/Sentinel1/metadata.yaml",
+  "IGRA": "VSC_DATA_VO/shared/observations/atmospheric/IGRA/metadata.yaml",
+  "ERA5-Land_biascorrected": "VSC_DATA_VO/shared/processed/ERA5-Land_biascorrected/metadata.yaml"
+}

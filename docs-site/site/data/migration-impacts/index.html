@@ -1,0 +1,1937 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="HPC resources and data infrastructure documentation for the Hydro-Climate Extremes Lab">
+      
+      
+      
+      
+        <link rel="prev" href="../migration-guide/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Migration Impacts - H-CEL Lab Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#migration-impacts-what-changes-for-your-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="H-CEL Lab Documentation" class="md-header__button md-logo" aria-label="H-CEL Lab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            H-CEL Lab Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Migration Impacts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/h-cel/hpc-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="H-CEL Lab Documentation" class="md-nav__button md-logo" aria-label="H-CEL Lab Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    H-CEL Lab Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/h-cel/hpc-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HPC Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HPC Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/tier1_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tier-1 Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Infrastructure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Infrastructure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Folder Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata-spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metadata Specification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../datasets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Impacts
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Impacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-1-using-external-data-eg-era5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Using External Data (e.g., ERA5)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 1: Using External Data (e.g., ERA5)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-option-a-update-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration (Option A: Update Path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-option-b-compatibility-symlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration (Option B: Compatibility Symlink)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-2-consolidated-duplicates-igra-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: Consolidated Duplicates (IGRA Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 2: Consolidated Duplicates (IGRA Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-data-duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem: Data Duplication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-single-canonical-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Single Canonical Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-code-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Code Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-3-project-using-gleam-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Project Using GLEAM Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 3: Project Using GLEAM Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-clear-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Clear Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-updated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Updated Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-4-producingsharing-new-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 4: Producing/Sharing New Datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 4: Producing/Sharing New Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-you-process-era5-land-for-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: You Process ERA5-Land for Your Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-migration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-proper-shared-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Proper Shared Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-5-managing-large-project-snowshop-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 5: Managing Large Project (SNOWSHOP Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 5: Managing Large Project (SNOWSHOP Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration-ad-hoc-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration: Ad-hoc Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-organized-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Organized Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-6-multi-project-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 6: Multi-Project Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 6: Multi-Project Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-heat-wave-analysis-using-multiple-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Heat Wave Analysis Using Multiple Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-savings-from-consolidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Savings From Consolidation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-tools-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Tools &amp; Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Tools &amp; Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-translation-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Translation Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-symlinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility Symlinks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-datasets-via-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find Datasets via Catalog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-transition-period" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline &amp; Transition Period
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-1-using-external-data-eg-era5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 1: Using External Data (e.g., ERA5)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 1: Using External Data (e.g., ERA5)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-option-a-update-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration (Option A: Update Path)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-option-b-compatibility-symlink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration (Option B: Compatibility Symlink)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-2-consolidated-duplicates-igra-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 2: Consolidated Duplicates (IGRA Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 2: Consolidated Duplicates (IGRA Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-data-duplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problem: Data Duplication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-single-canonical-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Single Canonical Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-code-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Code Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-3-project-using-gleam-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 3: Project Using GLEAM Outputs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 3: Project Using GLEAM Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-clear-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Clear Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#your-updated-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Updated Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-4-producingsharing-new-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 4: Producing/Sharing New Datasets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 4: Producing/Sharing New Datasets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-you-process-era5-land-for-your-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: You Process ERA5-Land for Your Project
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#before-migration_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-proper-shared-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Proper Shared Dataset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-5-managing-large-project-snowshop-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 5: Managing Large Project (SNOWSHOP Example)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 5: Managing Large Project (SNOWSHOP Example)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-migration-ad-hoc-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before Migration: Ad-hoc Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#after-migration-organized-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        After Migration: Organized Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scenario-6-multi-project-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario 6: Multi-Project Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scenario 6: Multi-Project Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-heat-wave-analysis-using-multiple-datasets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Heat Wave Analysis Using Multiple Datasets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-savings-from-consolidation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Savings From Consolidation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#migration-tools-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migration Tools &amp; Support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Migration Tools &amp; Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path-translation-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path Translation Helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compatibility-symlinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility Symlinks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#find-datasets-via-catalog" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Find Datasets via Catalog
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-transition-period" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline &amp; Transition Period
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="migration-impacts-what-changes-for-your-code">Migration Impacts: What Changes for Your Code?</h1>
+<p>This page shows <strong>concrete examples</strong> of how the data reorganization affects different types of users and workflows. Most changes are minimal or can be handled with symlinks.</p>
+<h2 id="quick-summary">Quick Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Your Situation</th>
+<th>Impact Level</th>
+<th>What You Need to Do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Using external datasets</strong> (ERA5, CHIRPS, etc.)</td>
+<td>⚠️ <strong>Low</strong></td>
+<td>Update paths once, benefits from better documentation</td>
+</tr>
+<tr>
+<td><strong>Using generated datasets</strong> (GLEAM, FLEXPART outputs)</td>
+<td>⚠️ <strong>Low-Medium</strong></td>
+<td>Update paths, use metadata to find versions</td>
+</tr>
+<tr>
+<td><strong>Project-internal data only</strong></td>
+<td>✅ <strong>None</strong></td>
+<td>Your <code>projects/YOURPROJECT/internal/</code> unchanged</td>
+</tr>
+<tr>
+<td><strong>Sharing data between projects</strong></td>
+<td>✅ <strong>Better</strong></td>
+<td>Easier discovery via catalog, avoid duplication</td>
+</tr>
+<tr>
+<td><strong>Managing/producing datasets</strong></td>
+<td>⚠️ <strong>Medium</strong></td>
+<td>Need to create metadata.yaml and README</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="scenario-1-using-external-data-eg-era5">Scenario 1: Using External Data (e.g., ERA5)</h2>
+<h3 id="before-migration">Before Migration</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;Load ERA5 temperature data - OLD VERSION&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="c1"># Hardcoded path to wherever ERA5 was downloaded</span>
+<span class="n">era5_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/EXT/data/ERA5/by_var_nc/t2m_1hourly/&quot;</span>
+<span class="n">t2m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">era5_path</span><span class="si">}</span><span class="s2">/t2m_*.nc&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Issues with old approach:</strong>
+- No documentation - which version? which variables available?
+- No contact info - who maintains this?
+- Hardcoded absolute path - breaks if data moves
+- Potential duplicates - multiple projects downloading same data</p>
+<h3 id="after-migration-option-a-update-path">After Migration (Option A: Update Path)</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;Load ERA5 temperature data - NEW VERSION (path update)&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Use environment variable + standard location</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VSC_DATA_VO&#39;</span><span class="p">]</span>
+<span class="n">era5_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/external/ERA5/by_var_nc/t2m_1hourly/&quot;</span>
+<span class="n">t2m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">era5_path</span><span class="si">}</span><span class="s2">/t2m_*.nc&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Benefits:</strong>
+- Portable across systems (uses <code>$VSC_DATA_VO</code>)
+- Clear organization (<code>shared/external/</code>)
+- Documented in catalog with metadata</p>
+<h3 id="after-migration-option-b-compatibility-symlink">After Migration (Option B: Compatibility Symlink)</h3>
+<p>If updating paths is difficult, a symlink maintains backward compatibility:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Symlink created during migration</span>
+/data/gent/vo/000/gvo00090/EXT/data/ERA5
+<span class="w">  </span>→<span class="w"> </span>/data/gent/vo/000/gvo00090/shared/external/ERA5
+</code></pre></div>
+<p><strong>Your old code still works:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Old path still works via symlink</span>
+<span class="n">era5_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/EXT/data/ERA5/by_var_nc/t2m_1hourly/&quot;</span>
+<span class="n">t2m</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">era5_path</span><span class="si">}</span><span class="s2">/t2m_*.nc&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>Impact:</strong> ✅ <strong>Zero code changes needed</strong> (symlink handles it)</p>
+<hr />
+<h2 id="scenario-2-consolidated-duplicates-igra-example">Scenario 2: Consolidated Duplicates (IGRA Example)</h2>
+<h3 id="problem-data-duplication">Problem: Data Duplication</h3>
+<p><strong>Before migration</strong>, IGRA radiosonde data existed in <strong>3 locations</strong>:
+- <code>/data/gent/vo/000/gvo00090/D2D/data/IGRA_PAIRS_20190515/</code> (11 GB)
+- <code>/data/gent/vo/000/gvo00090/D2D/data/IGRA_PAIRS_20190419/</code> (47 GB)
+- <code>/data/gent/vo/000/gvo00090/FLEXPART/observations/IGRA_PAIRS_20190515/</code> (35 subdirs)</p>
+<p><strong>Total duplication:</strong> ~100 GB of wasted space!</p>
+<h3 id="after-migration-single-canonical-location">After Migration: Single Canonical Location</h3>
+<div class="highlight"><pre><span></span><code>shared/observations/atmospheric/IGRA/
+├── metadata.yaml          # Documents version, source, contact
+├── README.md
+├── v20190419/            # Older version
+└── v20190515/            # Current version
+</code></pre></div>
+<p><strong>Projects link to shared location:</strong>
+<div class="highlight"><pre><span></span><code>projects/D2D/data/IGRA → $VSC_DATA_VO/shared/observations/atmospheric/IGRA/v20190515
+projects/FLEXPART/observations/IGRA → (same symlink)
+</code></pre></div></p>
+<h3 id="your-code-updates">Your Code Updates</h3>
+<p><strong>D2D project code:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Before</span>
+<span class="n">igra_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/D2D/data/IGRA_PAIRS_20190515/&quot;</span>
+
+<span class="c1"># After (Option 1: use shared location directly)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">igra_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VSC_DATA_VO&#39;</span><span class="p">],</span>
+                         <span class="s2">&quot;shared/observations/atmospheric/IGRA/v20190515&quot;</span><span class="p">)</span>
+
+<span class="c1"># After (Option 2: use project symlink - no code change needed)</span>
+<span class="n">igra_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/projects/D2D/data/IGRA/&quot;</span>
+<span class="c1"># Symlink makes old path still work!</span>
+</code></pre></div></p>
+<p><strong>FLEXPART project code:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Before</span>
+<span class="n">igra_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/FLEXPART/observations/IGRA_PAIRS_20190515/&quot;</span>
+
+<span class="c1"># After (via project symlink)</span>
+<span class="n">igra_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/projects/FLEXPART/observations/IGRA/&quot;</span>
+</code></pre></div></p>
+<p><strong>Impact:</strong> ⚠️ <strong>Low</strong> - Symlinks maintain compatibility, or one-line path update</p>
+<p><strong>Benefits:</strong>
+- <strong>100 GB saved</strong> from de-duplication
+- Single source of truth
+- Version clearly documented
+- Both projects stay in sync with updates</p>
+<hr />
+<h2 id="scenario-3-project-using-gleam-outputs">Scenario 3: Project Using GLEAM Outputs</h2>
+<h3 id="before-migration_1">Before Migration</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;Analyze GLEAM evapotranspiration - OLD VERSION&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="c1"># Where is GLEAM? It&#39;s... somewhere in /GLEAM/data/ which is a symlink to scratch?</span>
+<span class="n">gleam_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/GLEAM/data/&quot;</span>
+<span class="c1"># Wait, or is it in D2D?</span>
+<span class="c1"># gleam_path = &quot;/data/gent/vo/000/gvo00090/D2D/data/GLEAM/&quot;  # Another copy?</span>
+
+<span class="n">et</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gleam_path</span><span class="si">}</span><span class="s2">/E_2020_GLEAM_v3.8a.nc&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>Confusion:</strong>
+- Multiple GLEAM directories (<code>GLEAM/</code>, <code>D2D/data/GLEAM/</code>, <code>GLEAM-Hybrid/</code>, <code>GLEAM4_outputs/</code>)
+- Which is current? Which version?
+- Which one should I use?</p>
+<h3 id="after-migration-clear-structure">After Migration: Clear Structure</h3>
+<div class="highlight"><pre><span></span><code>shared/generated/GLEAM/
+├── metadata.yaml          # Clearly documents this is v3.8a, canonical location
+├── README.md              # Usage examples, citation
+├── v3.8a/                # Main version
+│   ├── E_2020_GLEAM_v3.8a.nc
+│   └── ...
+└── experimental/          # Clearly marked non-production
+
+shared/generated/GLEAM-Hybrid/
+├── metadata.yaml          # Separate dataset with own docs
+└── ...
+
+projects/GLEAM/
+├── internal/
+│   ├── GLEAM4_dev/       # Development version
+│   └── experiments/
+└── shared → ../../shared/generated/GLEAM/  # Symlink to outputs
+</code></pre></div>
+<h3 id="your-updated-code">Your Updated Code</h3>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;Analyze GLEAM evapotranspiration - NEW VERSION&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Clear, documented location</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VSC_DATA_VO&#39;</span><span class="p">]</span>
+<span class="n">gleam_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/generated/GLEAM/v3.8a/&quot;</span>
+<span class="n">et</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gleam_path</span><span class="si">}</span><span class="s2">/E_2020_GLEAM_v3.8a.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># Can check metadata for version info, citation, contact</span>
+</code></pre></div>
+<p><strong>Impact:</strong> ⚠️ <strong>Low-Medium</strong> - Need to update path, but clearer which version to use</p>
+<p><strong>Benefits:</strong>
+- <strong>Clear versioning</strong> - no confusion about which GLEAM
+- <strong>Documented</strong> - metadata has citation, DOI, version info
+- <strong>No duplication</strong> - D2D links to canonical location instead of copying</p>
+<hr />
+<h2 id="scenario-4-producingsharing-new-datasets">Scenario 4: Producing/Sharing New Datasets</h2>
+<h3 id="example-you-process-era5-land-for-your-project">Example: You Process ERA5-Land for Your Project</h3>
+<p><strong>Situation:</strong> You've created bias-corrected ERA5-Land that other projects might use.</p>
+<h3 id="before-migration_2">Before Migration</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Where to put it? Personal directory? Project directory?</span>
+/data/gent/vo/000/gvo00090/vsc46240/myproject/era5land_corrected/
+
+<span class="c1"># Problems:</span>
+<span class="c1"># - Hard for others to discover</span>
+<span class="c1"># - No documentation of processing steps</span>
+<span class="c1"># - Unclear if it&#39;s ready for use by others</span>
+</code></pre></div>
+<h3 id="after-migration-proper-shared-dataset">After Migration: Proper Shared Dataset</h3>
+<p><strong>1. Put data in right location:</strong>
+<div class="highlight"><pre><span></span><code><span class="nv">$VSC_DATA_VO</span>/shared/processed/ERA5-Land_biascorrected/
+</code></pre></div></p>
+<p><strong>2. Create metadata.yaml:</strong>
+<div class="highlight"><pre><span></span><code><span class="nt">dataset</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ERA5-Land_biascorrected</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0&quot;</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+<span class="w">    </span><span class="no">ERA5-Land daily temperature bias-corrected against Belgian station</span>
+<span class="w">    </span><span class="no">observations using quantile mapping.</span>
+
+<span class="nt">source</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Processed from ERA5-Land</span>
+<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CC BY 4.0</span>
+
+<span class="nt">contact</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Your Name</span>
+<span class="w">  </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">your.email@ugent.be</span>
+<span class="w">  </span><span class="nt">vsc_username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vsc46240</span>
+
+<span class="nt">history</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2026-09-15&quot;</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Processed ERA5-Land with quantile mapping bias correction</span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/yourorg/bias-correction/blob/main/process.py</span>
+</code></pre></div></p>
+<p><strong>3. Add README.md with usage example</strong></p>
+<p><strong>4. Your project links to it:</strong>
+<div class="highlight"><pre><span></span><code>projects/MYPROJECT/
+├──<span class="w"> </span>internal/<span class="w">              </span><span class="c1"># Your working code</span>
+├──<span class="w"> </span>scripts/
+└──<span class="w"> </span>data/
+<span class="w">    </span>└──<span class="w"> </span>era5land_corrected<span class="w"> </span>→<span class="w"> </span>../../../shared/processed/ERA5-Land_biascorrected/
+</code></pre></div></p>
+<p><strong>Impact:</strong> ⚠️ <strong>Medium</strong> - Need to create documentation</p>
+<p><strong>Benefits:</strong>
+- <strong>Discoverable</strong> - Appears in catalog automatically
+- <strong>Citable</strong> - Metadata includes processing DOI
+- <strong>Reproducible</strong> - History links to processing code
+- <strong>No duplication</strong> - Others link instead of copying</p>
+<hr />
+<h2 id="scenario-5-managing-large-project-snowshop-example">Scenario 5: Managing Large Project (SNOWSHOP Example)</h2>
+<h3 id="before-migration-ad-hoc-organization">Before Migration: Ad-hoc Organization</h3>
+<div class="highlight"><pre><span></span><code>/data/gent/vo/000/gvo00090/SNOWSHOP/
+├── Sentinel1/            # Is this production or experimental?
+├── WetSnow/              # Different user, different project?
+├── AlphaEarth/           # ML experiments
+├── measurements/         # In-situ data
+├── Forcings/             # Meteorology
+├── pythonenv/            # Should this be here?
+└── .snap/                # Cache files mixed with data
+</code></pre></div>
+<p><strong>Issues:</strong>
+- Unclear what's production vs. experimental
+- Hard to know what's safe to use
+- Processing artifacts mixed with data
+- No clear entry point for new users</p>
+<h3 id="after-migration-organized-structure">After Migration: Organized Structure</h3>
+<div class="highlight"><pre><span></span><code>shared/
+├── generated/SNOWSHOP/
+│   ├── Sentinel1/                    # Production output
+│   │   ├── metadata.yaml             # Documented!
+│   │   ├── README.md                 # Usage examples
+│   │   └── g0_100m/
+│   └── snowcover/                    # Other production products
+└── observations/
+    ├── ground/snow/ → SNOWSHOP measurements
+    └── lidar/snow/ → SNOWSHOP lidar
+
+projects/SNOWSHOP/
+├── README.md                          # Project overview
+├── internal/
+│   ├── WetSnow/                      # Active research
+│   ├── AlphaEarth/                   # ML experiments
+│   └── experiments/
+├── forcings/                          # Input data
+├── processing/
+│   └── cache/                        # Temp/cache (not backed up)
+└── shared → ../../shared/generated/SNOWSHOP/  # Links to outputs
+</code></pre></div>
+<h3 id="user-impact">User Impact</h3>
+<p><strong>For production users:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clear, documented access to production data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VSC_DATA_VO&#39;</span><span class="p">]</span>
+<span class="n">s1_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/generated/SNOWSHOP/Sentinel1/g0_100m/&quot;</span>
+
+<span class="c1"># Metadata tells you:</span>
+<span class="c1"># - Coverage (Alps, Andes, Nordic)</span>
+<span class="c1"># - Version (1.0)</span>
+<span class="c1"># - Contact (vsc40471)</span>
+<span class="c1"># - Citation (pending publication)</span>
+<span class="c1"># - Related validation data</span>
+</code></pre></div></p>
+<p><strong>For SNOWSHOP team members:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clear separation: production vs. experiments</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA_VO</span>/projects/SNOWSHOP/internal/WetSnow/<span class="w">  </span><span class="c1"># Experiments</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$VSC_DATA_VO</span>/projects/SNOWSHOP/shared/<span class="w">            </span><span class="c1"># Production outputs</span>
+</code></pre></div></p>
+<p><strong>Impact:</strong> ⚠️ <strong>Low for users, Medium for maintainers</strong></p>
+<p><strong>Benefits:</strong>
+- Clear production/experimental separation
+- New users know what's safe to use
+- Documented with metadata
+- Easier onboarding</p>
+<hr />
+<h2 id="scenario-6-multi-project-workflows">Scenario 6: Multi-Project Workflows</h2>
+<h3 id="example-heat-wave-analysis-using-multiple-datasets">Example: Heat Wave Analysis Using Multiple Datasets</h3>
+<p><strong>Before migration - data detective work:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Where is everything?</span>
+<span class="n">era5_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/EXT/data/ERA5/???&quot;</span>  <span class="c1"># Where exactly?</span>
+<span class="n">gleam_path</span> <span class="o">=</span> <span class="s2">&quot;/data/gent/vo/000/gvo00090/GLEAM/data/&quot;</span>      <span class="c1"># Is this current?</span>
+<span class="n">stations_path</span> <span class="o">=</span> <span class="s2">&quot;???&quot;</span>  <span class="c1"># Where are station obs?</span>
+
+<span class="c1"># Each dataset: different structure, no docs, unclear versions</span>
+</code></pre></div></p>
+<p><strong>After migration - clear catalog:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<span class="sd">&quot;&quot;&quot;Heat wave analysis using multiple datasets&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;VSC_DATA_VO&#39;</span><span class="p">]</span>
+
+<span class="c1"># All datasets documented in catalog at docs-site</span>
+<span class="c1"># Clear paths, versions, citation info</span>
+<span class="n">era5</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/external/ERA5/by_var_nc/t2m_1hourly/&quot;</span>
+<span class="n">gleam</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/generated/GLEAM/v3.8a/&quot;</span>
+<span class="n">stations</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">/shared/observations/ground/meteorology/belgium/&quot;</span>
+
+<span class="c1"># Metadata tells you:</span>
+<span class="c1"># - Compatible time periods</span>
+<span class="c1"># - Spatial resolution differences</span>
+<span class="c1"># - How to cite each</span>
+<span class="c1"># - Who to contact with questions</span>
+</code></pre></div>
+<p><strong>Impact:</strong> ✅ <strong>Better</strong> - Easier to discover and combine datasets</p>
+<hr />
+<h2 id="storage-savings-from-consolidation">Storage Savings From Consolidation</h2>
+<p>Based on current inventories:</p>
+<table>
+<thead>
+<tr>
+<th>Duplicate Data</th>
+<th>Original Locations</th>
+<th>New Location</th>
+<th>Space Saved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IGRA soundings</strong></td>
+<td>D2D (58 GB), FLEXPART (duplicate)</td>
+<td><code>shared/observations/atmospheric/IGRA/</code></td>
+<td><strong>~58 GB</strong></td>
+</tr>
+<tr>
+<td><strong>GLEAM</strong></td>
+<td>GLEAM/, D2D/GLEAM/ (184 GB)</td>
+<td><code>shared/generated/GLEAM/</code> (link from D2D)</td>
+<td><strong>~184 GB</strong></td>
+</tr>
+<tr>
+<td><strong>ERA5</strong></td>
+<td>EXT/ERA5/, HEAT/ERA5_old/ (1.5 TB), HEAT/arco-era5 (4.1 TB)?</td>
+<td>Consolidate or clarify</td>
+<td><strong>TBD</strong></td>
+</tr>
+<tr>
+<td><strong>Total estimated savings</strong></td>
+<td></td>
+<td></td>
+<td><strong>~250+ GB</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="migration-tools-support">Migration Tools &amp; Support</h2>
+<h3 id="path-translation-helper">Path Translation Helper</h3>
+<p>We provide a script to help update paths in your code:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Scan your code for old paths and suggest updates</span>
+python<span class="w"> </span><span class="nv">$VSC_DATA_VO</span>/tools/migration/scan_paths.py<span class="w"> </span>~/myproject/
+
+<span class="c1"># Output:</span>
+<span class="c1"># Found 3 old paths:</span>
+<span class="c1">#  - scripts/download.py:15: /data/.../EXT/data/ERA5/</span>
+<span class="c1">#    → Suggest: $VSC_DATA_VO/shared/external/ERA5/</span>
+<span class="c1">#  - analysis/load_data.py:42: /data/.../GLEAM/data/</span>
+<span class="c1">#    → Suggest: $VSC_DATA_VO/shared/generated/GLEAM/v3.8a/</span>
+</code></pre></div>
+<h3 id="compatibility-symlinks">Compatibility Symlinks</h3>
+<p>For datasets you can't update immediately, symlinks preserve old paths:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Old path still works during transition period</span>
+/data/gent/vo/000/gvo00090/EXT/data/ERA5/
+<span class="w">  </span>→<span class="w"> </span>/data/gent/vo/000/gvo00090/shared/external/ERA5/
+</code></pre></div>
+<h3 id="find-datasets-via-catalog">Find Datasets via Catalog</h3>
+<p>Browse the <a href="../../datasets/">data catalog</a> to discover available datasets with full metadata.</p>
+<hr />
+<h2 id="timeline-transition-period">Timeline &amp; Transition Period</h2>
+<ol>
+<li><strong>Phase 1 (Months 1-2):</strong> Create <code>shared/</code> structure, add metadata</li>
+<li><strong>Phase 2 (Months 3-4):</strong> Create symlinks, both old and new paths work</li>
+<li><strong>Phase 3 (Months 5-6):</strong> Encourage users to update to new paths</li>
+<li><strong>Phase 4 (Month 12+):</strong> Deprecate old paths (with advance notice)</li>
+</ol>
+<p><strong>You have time</strong> to update your code gradually!</p>
+<hr />
+<h2 id="questions">Questions?</h2>
+<ul>
+<li><strong>"My code breaks!"</strong> → Check if symlinks are in place, or consult migration guide</li>
+<li><strong>"Where did dataset X go?"</strong> → Check the <a href="../../datasets/">catalog</a></li>
+<li><strong>"Who maintains dataset Y?"</strong> → Check its <code>metadata.yaml</code> contact field</li>
+<li><strong>"How do I share my data?"</strong> → See <a href="../metadata-spec/">metadata spec</a> and contact VO admin</li>
+</ul>
+<p>For help: email VO admin or check dataset-specific contact in metadata.yaml</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "navigation.expand", "content.code.copy", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

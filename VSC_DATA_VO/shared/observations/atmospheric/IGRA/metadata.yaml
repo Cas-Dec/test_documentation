@@ -1,0 +1,75 @@
+dataset:
+  name: IGRA
+  long_name: Integrated Global Radiosonde Archive - Paired Soundings
+  version: "v20190515"
+  description: >
+    Quality-controlled radiosonde observations from the NOAA Integrated Global
+    Radiosonde Archive. This version contains paired soundings (matched temporal
+    pairs) used for atmospheric boundary layer analysis and model validation.
+    Consolidated from multiple project copies to avoid duplication.
+
+source:
+  provider: NOAA National Centers for Environmental Information
+  url: https://www.ncei.noaa.gov/products/weather-balloon/integrated-global-radiosonde-archive
+  license: Public domain
+  citation: >
+    Durre, I., Vose, R.S., & Wuertz, D.B. (2006). Overview of the Integrated
+    Global Radiosonde Archive. Journal of Climate, 19(1), 53-68.
+
+coverage:
+  spatial:
+    domain: global (station-based)
+    resolution: station network
+  temporal:
+    start: "1905-01-01"
+    end: "2019-05-15"
+    frequency: variable (typically twice daily)
+
+variables:
+  - short_name: temp
+    standard_name: air_temperature
+    units: K
+  - short_name: dwpt
+    standard_name: dew_point_temperature
+    units: K
+  - short_name: wdir
+    standard_name: wind_from_direction
+    units: degrees
+  - short_name: wspd
+    standard_name: wind_speed
+    units: m s-1
+  - short_name: pres
+    standard_name: air_pressure
+    units: Pa
+  - short_name: gph
+    standard_name: geopotential_height
+    units: m
+
+contact:
+  name: VO Data Manager
+  email: vo.admin@ugent.be
+  vsc_username: vsc45925
+
+storage:
+  path: $VSC_DATA_VO/shared/observations/atmospheric/IGRA
+  size: "~60 GB"
+  organization: v20190515/pairs/
+  note: "Consolidated from D2D and FLEXPART project directories"
+
+history:
+  - date: "2019-04-19"
+    description: Initial download (v20190419)
+  - date: "2019-05-15"
+    description: Updated to v20190515 with additional quality control
+  - date: "2026-10-01"
+    description: Consolidated from multiple locations to shared/observations/
+
+related_datasets:
+  - name: D2D Soundings
+    path: $VSC_DATA_VO/shared/observations/atmospheric/soundings/
+    note: "Field campaign specific soundings"
+
+notes: >
+  This dataset was previously duplicated in both D2D/ and FLEXPART/ project
+  directories. Now maintained in single location with symlinks from projects.
+  See migration guide for how to update code paths.

@@ -1,0 +1,54 @@
+dataset:
+  name: ERA5
+  long_name: ERA5 hourly reanalysis
+  version: "1"
+  description: >
+    ECMWF's fifth generation atmospheric reanalysis providing hourly estimates
+    of atmospheric variables on a 0.25° grid from 1940 to present. Contains 20+
+    variables including temperature, precipitation, wind, radiation, and more.
+
+source:
+  provider: ECMWF / Copernicus Climate Change Service (C3S)
+  url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels
+  doi: 10.24381/cds.adbb2d47
+  license: Copernicus License
+
+coverage:
+  spatial:
+    domain: global
+    resolution: "0.25°"
+  temporal:
+    start: "1940-01-01"
+    end: ongoing
+    frequency: hourly
+
+variables:
+  - short_name: t2m
+    standard_name: air_temperature
+    units: K
+    description: 2-metre temperature
+  - short_name: tp
+    standard_name: precipitation_amount
+    units: m
+    description: Total precipitation
+  - short_name: ssrd
+    standard_name: surface_downwelling_shortwave_flux_in_air
+    units: J m-2
+    description: Surface solar radiation downwards
+
+contact:
+  name: VO Data Manager
+  email: vo.admin@ugent.be
+  vsc_username: vsc45925
+
+storage:
+  path: $VSC_DATA_VO/shared/external/ERA5
+  size: "~500 GB"
+  organization: by_var_nc/[variable]_1hourly/
+
+history:
+  - date: "2024-08-15"
+    description: Initial download via CDS API, organized by variable
+    source: https://github.com/h-cel/data-pipelines/blob/main/era5/download_era5.py
+  - date: "2025-09-12"
+    description: Updated through 2025-08

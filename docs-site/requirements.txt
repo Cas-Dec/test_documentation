@@ -1,0 +1,6 @@
+mkdocs-material>=9
+pyyaml>=6
+jsonschema>=4
+
+# Optional: for real-time file watching (scripts/watch_and_update.py)
+# watchdog>=3

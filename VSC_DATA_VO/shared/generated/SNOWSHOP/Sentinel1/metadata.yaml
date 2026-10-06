@@ -1,0 +1,65 @@
+dataset:
+  name: SNOWSHOP Sentinel-1 Snow Products
+  long_name: Sentinel-1 SAR-derived snow depth and SWE at 100m resolution
+  version: "1.0"
+  description: >
+    Continental-scale snow depth and snow water equivalent retrievals from
+    Sentinel-1 SAR backscatter at 100m resolution. Covers major mountain
+    regions (Alps, Andes, Nordic). Processing uses SNAP toolbox and custom
+    retrieval algorithms.
+
+source:
+  provider: SNOWSHOP Project / UGent
+  url: https://github.com/snowshop/sentinel1-processing
+  license: Internal - contact before use
+  citation: >
+    [Citation pending - dataset in preparation for publication]
+
+coverage:
+  spatial:
+    domain: Alps, Andes, Nordic/Scandinavia/Finland
+    resolution: "100m"
+  temporal:
+    start: "2015-01-01"
+    end: ongoing
+    frequency: 6-12 days (Sentinel-1 revisit)
+
+variables:
+  - short_name: sd
+    standard_name: surface_snow_thickness
+    units: m
+    description: Snow depth
+  - short_name: swe
+    standard_name: liquid_water_content_of_surface_snow
+    units: kg m-2
+    description: Snow water equivalent
+  - short_name: g0
+    standard_name: normalized_radar_backscatter
+    units: dB
+    description: Normalized gamma-0 backscatter
+
+contact:
+  name: SNOWSHOP Team Lead
+  email: snowshop.lead@ugent.be
+  vsc_username: vsc40471
+
+storage:
+  path: $VSC_DATA_VO/shared/generated/SNOWSHOP/Sentinel1
+  size: "~2 TB"
+  organization: g0_100m/[tile_id]/
+  note: "4949 tiles covering target regions"
+
+history:
+  - date: "2024-01-15"
+    description: Initial processing campaign for 2015-2023
+    source: https://github.com/snowshop/sentinel1-processing/blob/main/process_tiles.py
+  - date: "2025-11-12"
+    description: Ongoing processing, updated through 2025-10
+  - date: "2026-07-24"
+    description: Added snow depth retrieval algorithm (SD_RETRIEVAL)
+
+related_datasets:
+  - name: SNOWSHOP Lidar Validation
+    path: $VSC_DATA_VO/shared/observations/lidar/snow/
+  - name: SNOWSHOP In-situ Measurements
+    path: $VSC_DATA_VO/shared/observations/ground/snow/

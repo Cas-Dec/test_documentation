@@ -1,0 +1,43 @@
+dataset:
+  name: CHIRPS
+  long_name: Climate Hazards Group InfraRed Precipitation with Station data
+  version: "v3.0"
+  description: >
+    Quasi-global rainfall dataset combining satellite imagery and in-situ
+    station data to create gridded precipitation time series at 0.05° resolution
+    for 1981-present.
+
+source:
+  provider: Climate Hazards Center, UC Santa Barbara
+  url: https://www.chc.ucsb.edu/data/chirps
+  doi: 10.1038/sdata.2015.66
+  license: CC BY 4.0
+
+coverage:
+  spatial:
+    domain: 50°S - 50°N, all longitudes
+    resolution: "0.05°"
+  temporal:
+    start: "1981-01-01"
+    end: ongoing
+    frequency: monthly
+
+variables:
+  - short_name: pr
+    standard_name: precipitation_amount
+    units: mm month-1
+    description: Monthly precipitation
+
+contact:
+  name: VO Data Manager
+  email: vo.admin@ugent.be
+  vsc_username: vsc45925
+
+storage:
+  path: $VSC_DATA_VO/shared/external/CHIRPS
+  size: "~15 GB"
+  organization: v3.0/monthly/
+
+history:
+  - date: "2024-03-10"
+    description: Downloaded CHIRPS v3.0 monthly data via FTP

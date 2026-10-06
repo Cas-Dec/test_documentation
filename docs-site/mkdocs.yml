@@ -1,0 +1,41 @@
+site_name: H-CEL Lab Documentation
+site_description: HPC resources and data infrastructure documentation for the Hydro-Climate Extremes Lab
+repo_url: https://github.com/h-cel/hpc-docs
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.expand
+    - content.code.copy
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - HPC Resources:
+      - Getting Started: hpc/intro.md
+      - Tier-1 Guide: hpc/tier1_guide.md
+  - Data Infrastructure:
+      - Overview: data/overview.md
+      - Folder Structure: data/structure.md
+      - Metadata Specification: data/metadata-spec.md
+      - Dataset Catalog: datasets/index.md
+      - Migration Guide: data/migration-guide.md
+      - Migration Impacts: data/migration-impacts.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences
+  - pymdownx.highlight

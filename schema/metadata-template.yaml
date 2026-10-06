@@ -1,0 +1,55 @@
+# metadata.yaml template
+# Copy this file to your dataset directory and fill in all fields
+# Location: $VSC_DATA_VO/shared/<category>/<dataset_name>/metadata.yaml
+# Validate with: python scripts/validate_metadata.py
+
+dataset:
+  name: ""                # Short identifier (matches folder name, no spaces)
+  long_name: ""           # Full human-readable name
+  version: ""             # Dataset version (optional, can be empty string)
+  description: |          # 1-3 sentences describing the dataset
+
+
+source:
+  provider: ""            # Data provider (e.g., ECMWF, NASA, KU Leuven)
+  url: ""                 # Link to original data source/portal (use https://)
+  doi: ""                 # DOI if available (optional, can be empty string)
+  license: ""             # Usage license (e.g., "CC-BY-4.0", "Copernicus License")
+
+coverage:
+  spatial:
+    domain: ""            # Spatial extent (e.g., "global", "Europe", "30°N-50°N, 10°W-40°E")
+    resolution: ""        # Spatial resolution (e.g., "0.25°", "9 km", "1 km")
+  temporal:
+    start: ""             # Start date (YYYY-MM-DD format)
+    end: ""               # End date (YYYY-MM-DD or "ongoing")
+    frequency: ""         # Temporal frequency (e.g., "hourly", "daily", "monthly")
+
+variables:
+  # List all variables in the dataset
+  # Use CF standard names where possible: http://cfconventions.org/standard-names.html
+  - short_name: ""        # Short name (e.g., "tas", "pr", "huss")
+    standard_name: ""     # CF standard name (e.g., "air_temperature", "precipitation_flux")
+    units: ""             # Units (e.g., "K", "mm/day", "kg m-2 s-1")
+
+  # Add more variables as needed:
+  # - short_name: ""
+  #   standard_name: ""
+  #   units: ""
+
+contact:
+  name: ""                # Your full name
+  email: ""               # Your institutional email
+  vsc_username: ""        # Your VSC username (e.g., vsc12345)
+
+history:
+  # Append-only log of processing steps
+  # IMPORTANT: Include permalink to exact script/commit
+  - date: ""              # YYYY-MM-DD format
+    description: ""       # What was done (e.g., "Initial download from CDS")
+    source: ""            # Link to script/commit (e.g., "https://github.com/org/repo/blob/abc123/download.py")
+
+  # Add more history entries as you process the data:
+  # - date: ""
+  #   description: ""
+  #   source: ""
